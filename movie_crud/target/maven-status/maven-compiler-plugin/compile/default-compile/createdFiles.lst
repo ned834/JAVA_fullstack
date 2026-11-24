@@ -1,1 +1,13 @@
+com\bmsce\entity\Movie.class
+com\bmsce\MovieLoggingRunner.class
+com\bmsce\exception\MovieNotFoundException.class
+com\bmsce\MovieRunner.class
+com\bmsce\ExceptionRunner.class
+com\bmsce\PredefinedExceptionRunner.class
+com\bmsce\service\MovieValidationService.class
+com\bmsce\exception\InvalidMovieException.class
+com\bmsce\exception\DuplicateMovieException.class
+com\bmsce\MovieExceptionRunner.class
+com\bmsce\service\MovieService.class
+com\bmsce\MovieCRUDRunner.class
 com\bmsce\App.class
