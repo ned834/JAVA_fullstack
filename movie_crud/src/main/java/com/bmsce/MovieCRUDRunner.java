@@ -86,9 +86,7 @@ public class MovieCRUDRunner {
                 System.out.println(m);
             }
 
-        } catch (InvalidMovieException |
-                 DuplicateMovieException |
-                 MovieNotFoundException e) {
+        } catch (InvalidMovieException | DuplicateMovieException |MovieNotFoundException e) {
 
             System.out.println(
                     "Error: " + e.getMessage()
