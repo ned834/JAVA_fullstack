@@ -25,7 +25,14 @@
             <td>{{ movie.rating }}</td>
             <td>{{ movie.releaseYear }}</td>
 
+
             <td>
+                <button [routerLink]="['/movie-update', movie.movieId]">
+                    Update
+                </button>
+
+                
+
                 <button (click)="deleteMovie(movie.movieId)">
                     Delete
                 </button>

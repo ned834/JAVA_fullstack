@@ -1,0 +1,150 @@
+<h2>Update Movie</h2>
+
+<div *ngIf="movieNotFound">
+
+    <h3>Movie Not Found!</h3>
+
+    <button type="button" (click)="cancel()">
+        Back to Movie List
+    </button>
+
+</div>
+
+
+<form
+    *ngIf="!movieNotFound"
+    [formGroup]="movieForm"
+    (ngSubmit)="updateMovie()">
+
+    <h3>Movie ID: {{ movieId }}</h3>
+
+    <!-- Movie Name -->
+
+    <div>
+        <label>Movie Name:</label>
+
+        <input
+            type="text"
+            formControlName="movieName">
+
+        <div class="error"
+             *ngIf="movieForm.get('movieName')?.touched &&
+                    movieForm.get('movieName')?.hasError('required')">
+
+            Movie Name is required.
+
+        </div>
+
+        <div class="error"
+             *ngIf="movieForm.get('movieName')?.touched &&
+                    movieForm.get('movieName')?.hasError('minlength')">
+
+            Movie Name must contain at least 2 characters.
+
+        </div>
+    </div>
+
+
+    <!-- Director -->
+
+    <div>
+        <label>Director:</label>
+
+        <input
+            type="text"
+            formControlName="director">
+
+        <div class="error"
+             *ngIf="movieForm.get('director')?.touched &&
+                    movieForm.get('director')?.hasError('required')">
+
+            Director is required.
+
+        </div>
+    </div>
+
+
+    <!-- Genre -->
+
+    <div>
+        <label>Genre:</label>
+
+        <input
+            type="text"
+            formControlName="genre">
+
+        <div class="error"
+             *ngIf="movieForm.get('genre')?.touched &&
+                    movieForm.get('genre')?.hasError('required')">
+
+            Genre is required.
+
+        </div>
+    </div>
+
+
+    <!-- Rating -->
+
+    <div>
+        <label>Rating:</label>
+
+        <input
+            type="number"
+            formControlName="rating">
+
+        <div class="error"
+             *ngIf="movieForm.get('rating')?.touched &&
+                    movieForm.get('rating')?.hasError('required')">
+
+            Rating is required.
+
+        </div>
+
+        <div class="error"
+             *ngIf="movieForm.get('rating')?.touched &&
+                    (movieForm.get('rating')?.hasError('min') || movieForm.get('rating')?.hasError('max'))">
+
+            Rating must be between 0 and 10.
+
+        </div>
+    </div>
+
+
+    <!-- Release Year -->
+
+    <div>
+        <label>Release Year:</label>
+
+        <input
+            type="number"
+            formControlName="releaseYear">
+
+        <div class="error"
+             *ngIf="movieForm.get('releaseYear')?.touched &&
+                    movieForm.get('releaseYear')?.hasError('required')">
+
+            Release Year is required.
+
+        </div>
+
+        <div class="error"
+             *ngIf="movieForm.get('releaseYear')?.touched &&
+                    (movieForm.get('releaseYear')?.hasError('min') || movieForm.get('releaseYear')?.hasError('max'))">
+
+            Enter a year between 1888 and 2100.
+
+        </div>
+    </div>
+
+
+    <br>
+
+    <button type="submit">
+        Update Movie
+    </button>
+
+    <button type="button" (click)="cancel()">
+        Cancel
+    </button>
+
+</form>

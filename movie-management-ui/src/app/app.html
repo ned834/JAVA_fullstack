@@ -1,8 +1,18 @@
 <h1> Movie Management Application</h1>
+<nav>
+    <button routerLink="/movies" routerLinkActive="active">
+        Get All Movies 
+    </button>
+
+    <button routerLink="/movie-create" routerLinkActive="active">
+        Create Movie
+    </button>
+
+    <button routerLink="/movie-by-id" routerLinkActive="active">
+        Get Movie by ID
+    </button>
+
+</nav>
 <hr>
-<app-movielist></app-movielist>
-<hr>
-<app-movie></app-movie>
-<hr>
-<app-movie-create></app-movie-create>
-<hr>
+
+<router-outlet></router-outlet>

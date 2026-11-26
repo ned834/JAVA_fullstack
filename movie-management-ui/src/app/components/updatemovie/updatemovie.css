@@ -1,0 +1,42 @@
+h2 {
+    color: darkblue;
+}
+
+form {
+    width: 450px;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 15px 5px 0 0;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
