@@ -1,0 +1,140 @@
+<h2>Create New Movie</h2>
+
+<form [formGroup]="movieForm" (ngSubmit)="createMovie()">
+
+    <!-- Movie Name -->
+    <div>
+        <label>Movie Name:</label>
+
+        <input
+            type="text"
+            formControlName="movieName"
+            placeholder="Enter Movie Name">
+
+        <div class="error"
+             *ngIf="movieForm.get('movieName')?.touched &&
+                    movieForm.get('movieName')?.hasError('required')">
+
+            Movie Name is required.
+
+        </div>
+
+        <div class="error"
+             *ngIf="movieForm.get('movieName')?.touched &&
+                    movieForm.get('movieName')?.hasError('minlength')">
+
+            Movie Name must contain at least 2 characters.
+
+        </div>
+    </div>
+
+
+    <!-- Director -->
+    <div>
+        <label>Director:</label>
+
+        <input
+            type="text"
+            formControlName="director"
+            placeholder="Enter Director Name">
+
+        <div class="error"
+             *ngIf="movieForm.get('director')?.touched &&
+                    movieForm.get('director')?.hasError('required')">
+
+            Director is required.
+
+        </div>
+    </div>
+
+
+    <!-- Genre -->
+    <div>
+        <label>Genre:</label>
+
+        <input
+            type="text"
+            formControlName="genre"
+            placeholder="Enter Genre">
+
+        <div class="error"
+             *ngIf="movieForm.get('genre')?.touched &&
+                    movieForm.get('genre')?.hasError('required')">
+
+            Genre is required.
+
+        </div>
+    </div>
+
+
+    <!-- Rating -->
+    <div>
+        <label>Rating:</label>
+
+        <input
+            type="number"
+            formControlName="rating"
+            placeholder="Enter Rating">
+
+        <div class="error"
+             *ngIf="movieForm.get('rating')?.touched &&
+                    movieForm.get('rating')?.hasError('required')">
+
+            Rating is required.
+
+        </div>
+
+        <div class="error"
+             *ngIf="movieForm.get('rating')?.touched &&
+                    (movieForm.get('rating')?.hasError('min') ||
+                     movieForm.get('rating')?.hasError('max'))">
+
+            Rating must be between 0 and 10.
+
+        </div>
+    </div>
+
+
+    <!-- Release Year -->
+    <div>
+        <label>Release Year:</label>
+
+        <input
+            type="number"
+            formControlName="releaseYear"
+            placeholder="Enter Release Year">
+
+        <div class="error"
+             *ngIf="movieForm.get('releaseYear')?.touched &&
+                    movieForm.get('releaseYear')?.hasError('required')">
+
+            Release Year is required.
+
+        </div>
+
+        <div class="error"
+             *ngIf="movieForm.get('releaseYear')?.touched &&
+                    (movieForm.get('releaseYear')?.hasError('min') ||
+                     movieForm.get('releaseYear')?.hasError('max'))">
+
+            Enter a year between 1888 and 2100.
+
+        </div>
+    </div>
+
+
+    <br>
+
+    <button type="submit">
+        Create Movie
+    </button>
+
+    <button type="button" (click)="movieForm.reset()">
+        Clear
+    </button>
+
+</form>
+
+<p class="success" *ngIf="successMessage">
+    {{ successMessage }}
+</p>

@@ -1,0 +1,56 @@
+<h2>Get Movie By ID</h2>
+
+<label>Enter Movie ID:</label>
+
+<input
+    type="number"
+    [(ngModel)]="movieId"
+    placeholder="Enter Movie ID">
+
+<button (click)="getMovieById()">
+    Search Movie
+</button>
+
+<br><br>
+
+<div *ngIf="selectedMovie">
+
+    <h3>Movie Details</h3>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Movie ID</th>
+            <td>{{ selectedMovie.movieId }}</td>
+        </tr>
+
+        <tr>
+            <th>Movie Name</th>
+            <td>{{ selectedMovie.movieName }}</td>
+        </tr>
+
+        <tr>
+            <th>Director</th>
+            <td>{{ selectedMovie.director }}</td>
+        </tr>
+
+        <tr>
+            <th>Genre</th>
+            <td>{{ selectedMovie.genre }}</td>
+        </tr>
+
+        <tr>
+            <th>Rating</th>
+            <td>{{ selectedMovie.rating }}</td>
+        </tr>
+
+        <tr>
+            <th>Release Year</th>
+            <td>{{ selectedMovie.releaseYear }}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<p *ngIf="message">{{ message }}</p>

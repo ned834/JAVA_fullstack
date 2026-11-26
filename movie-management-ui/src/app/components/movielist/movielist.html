@@ -1,0 +1,42 @@
+<h2>Get All Movies</h2>
+
+<table border="1" cellpadding="10">
+
+    <thead>
+        <tr>
+            <th>Movie ID</th>
+            <th>Movie Name</th>
+            <th>Director</th>
+            <th>Genre</th>
+            <th>Rating</th>
+            <th>Release Year</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let movie of (movies$ | async)">
+
+            <td>{{ movie.movieId }}</td>
+            <td>{{ movie.movieName }}</td>
+            <td>{{ movie.director }}</td>
+            <td>{{ movie.genre }}</td>
+            <td>{{ movie.rating }}</td>
+            <td>{{ movie.releaseYear }}</td>
+
+            <td>
+                <button (click)="deleteMovie(movie.movieId)">
+                    Delete
+                </button>
+            </td>
+
+        </tr>
+
+        <tr *ngIf="(movies$ | async)?.length === 0">
+            <td colspan="7">No Movies Found</td>
+        </tr>
+
+    </tbody>
+
+</table>
